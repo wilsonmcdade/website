@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Modified by Wilson McDade
+-->
+<html>
+	<head>
+		<title>Projects | Wilson McDade</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+<!--		<link rel="stylesheet" href="assets/css/main.css"/> -->
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">Wilson McDade</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/">Home</a></li>
+								<li><a href="projects">Projects</a></li>
+								<li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
+								<li><a href="resume">Resume</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="banner">
+						<header>
+							<div class="inner">
+								<h2>Major Projects</h2>
+
+								<ul class="alt">
+									{% for post in posts %}
+									<li><a href="#{{ post.url }}"> {{ post.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</header>
+					</section>
+
+						<!-- Content -->
+						<section id="wrapper">
+
+								{% if posts %}
+								{% for post in posts %}
+								<section class="wrapper {{ loop.cycle('style1','style2','style3','style4') }} {{ loop.cycle('alt','') }}" id="{{ post.url }}">
+									<div class="inner">
+										<h2 class="major">{{ post.title }}</h2>
+											{% if post.text %}
+											{% for para in post.text %}
+											{% if loop.index == 1 %}
+											<p><span class="image right"><img src="{{ url_for('static',filename='assets/images/')}}{{ post.picsrc }}"></span> {{ para|safe }}</p>
+											{% else %}
+											<p>{{ para|safe }}</p>
+											{% endif %}
+											{% endfor %}
+											{% endif %}
+									</div>
+								</section>
+								{% endfor %}
+								{% endif %}
+
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									Wilson McDade<br />
+									5000 Nathaniel Rochester Hall<br />
+									Rochester, NY 14623
+								</li>
+								<li class="icon solid fa-phone">(504) 881-4528</li>
+								<li class="icon solid fa-envelope"><a href="mailto:wilson.mcdade@gmail.com">wilson.mcdade@gmail.com</a></li>
+								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/wilsonmcdade">instagram.com/wilsonmcdade</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Wilson McDade. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
