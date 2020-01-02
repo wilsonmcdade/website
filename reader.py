@@ -19,32 +19,45 @@ def reader(filename):
     return posts
 
 def parser(lines,file,posts):
-    url = ""
-    title = ""
-    para = ""
-    picsrc = ""
+    url = str
+    title = str
+    para = str
+    picsrc = str
     text = []
+
+    post = {
+        'url' : url,
+        'title' : title,
+        'para' : para,
+        'picsrc' : picsrc,
+        'text' : text
+        }
 
     for line in file:
         synt = line[:2]
-        rest = line[2:]
-        if synt == "%u":
-            url = rest.strip()
-        elif synt == "%T":
-            title = rest.strip()
-        elif synt == "%p":
-            para = rest.strip()
-        elif synt == "%s":
-            picsrc = rest.strip()
-        elif synt == "%t":
-            text.append(rest.strip())
-        elif synt == "%P":
-            posts.append(parser(lines,file,posts))
-    post = {
-            'url' : url,
-            'title' : title,
-            'para' : para,
-            'picsrc' : picsrc,
-            'text' : text
+        rest = line[2:].strip()
+
+        syntax = {
+            "%u":"url",
+            "%T":"title",
+            "%p":"para",
+            "%s":"picsrc",
+            "%t":None,
+            "%P":None
             }
+
+        if synt in syntax:
+
+            if synt == "%t":
+                text.append(rest)
+            elif synt == "%P":
+                posts.append(parser(lines,file,posts))
+            else:
+                cmd = syntax[synt]
+                post[cmd] = rest
+
+        else:
+            print("synt not in syntax")
+            pass
+
     return post
