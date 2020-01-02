@@ -34,8 +34,12 @@ def parser(lines,file,posts):
         }
 
     for line in file:
-        synt = line[:2]
-        rest = line[2:].strip()
+        if len(line) > 2:
+            synt = line[:2]
+            rest = line[2:].strip()
+        else:
+            print("No attribute. Skipping line.")
+            continue
 
         syntax = {
             "%u":"url",
