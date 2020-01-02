@@ -21,14 +21,14 @@ def reader(filename):
 def parser(lines,file,posts):
     url = str
     title = str
-    para = str
+    blurb = str
     picsrc = str
     text = []
 
     post = {
         'url' : url,
         'title' : title,
-        'para' : para,
+        'blurb' : blurb,
         'picsrc' : picsrc,
         'text' : text
         }
@@ -44,7 +44,7 @@ def parser(lines,file,posts):
         syntax = {
             "%u":"url",
             "%T":"title",
-            "%p":"para",
+            "%b":"blurb",
             "%s":"picsrc",
             "%t":None,
             "%P":None
