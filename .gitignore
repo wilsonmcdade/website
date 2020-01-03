@@ -1,3 +1,4 @@
 .swp
 venv/
+/dev-app.py
 /templates/assets/
