@@ -1,5 +1,5 @@
 # website
-My personal website - wilsonmcdade.com or wilsonmcda.de
+# My personal website - wilsonmcdade.com or wilsonmcda.de
 
 This is a flask website built using jinja2 templating with a modified HTML5Up template.
 
@@ -9,7 +9,7 @@ reader.py - deals with interpreting a post file and returning the posts for the 
 
 posts.txt - post file. Contains a list of posts for the website. 
 
-Post template
+# Post template
 
 %P
 
@@ -24,5 +24,9 @@ Post template
 %t First paragraph of text
 
 %t Second paragraph of text
+
+%c First block of code
+
+%t Third paragraph of text
 
 You can have as many %t's as you would like. 
