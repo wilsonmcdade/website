@@ -1,5 +1,5 @@
 # website
-# My personal website - wilsonmcdade.com or wilsonmcda.de
+My personal website - wilsonmcdade.com or wilsonmcda.de
 
 This is a flask website built using jinja2 templating with a modified HTML5Up template.
 
