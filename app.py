@@ -21,6 +21,14 @@ def projects():
 def resume():
     return redirect('/static/assets/resume.pdf')
 
+@app.route('/rtlsdr')
+def rtl():
+    return render_template('projects.html#rtlsdr', posts=posts)
+
+@app.route('/gokart')
+def gokart():
+    return render_template('projects,html#gokart', posts=posts)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port="8080")

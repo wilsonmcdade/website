@@ -39,6 +39,7 @@ def parser(lines,file,posts):
             rest = line[2:].strip()
         else:
             print("No attribute. Skipping line.")
+            print(line)
             continue
 
         syntax = {
@@ -46,6 +47,7 @@ def parser(lines,file,posts):
             "%T":"title",
             "%b":"blurb",
             "%s":"picsrc",
+            "%c":"code",
             "%t":None,
             "%P":None
             }
@@ -54,6 +56,8 @@ def parser(lines,file,posts):
 
             if synt == "%t":
                 text.append(rest)
+            elif synt == "%c":
+                text.append("</p><pre><code>"+rest+"</code></pre></p>")
             elif synt == "%P":
                 posts.append(parser(lines,file,posts))
             else:
@@ -62,6 +66,7 @@ def parser(lines,file,posts):
 
         else:
             print("synt not in syntax")
+            print(synt,line,syntax)
             pass
 
     return post

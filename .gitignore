@@ -1,4 +1,5 @@
 .swp
 venv/
 /dev-app.py
+__pycache__/
 /templates/assets/
