@@ -37,6 +37,8 @@ if __name__ == "__main__":
     current_date = now.strftime("%m-%d-%Y")
     current_time = now.strftime("%H-%M-%S")
     filename = "logs/"+str(current_date)+"/"+str(current_time)+".txt"
+    if os.path.exists("logs/") == False:
+        os.mkdir("logs/")
     if os.path.exists(filename[:16]) == False:
         os.mkdir(filename[:16])
     with open(filename, "a+") as file:
