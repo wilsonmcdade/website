@@ -35,7 +35,7 @@ def resume():
 if __name__ == "__main__":
     now = datetime.now()
     current_date = now.strftime("%m-%d-%Y")
-    current_time = now.strftime("%H-%M-%s")
+    current_time = now.strftime("%H-%M-%S")
     filename = "logs/"+str(current_date)+"/"+str(current_time)+".txt"
     if os.path.exists("logs/") == False:
         os.mkdir("logs/")
