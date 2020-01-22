@@ -7,6 +7,8 @@ website.py - deals with routing and templating. calls reader() from reader.py
 
 reader.py - deals with interpreting a post file and returning the posts for the website. reader() interprets the beginning of a post file, calls parser() to do the rest of the work.
 
+logger.py - contains logger(), a function called when a route is called that logs the time, route, ip address, and a count of page hits
+
 posts.txt - post file. Contains a list of posts for the website. 
 
 # Post template
