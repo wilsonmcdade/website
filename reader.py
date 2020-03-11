@@ -1,5 +1,7 @@
 """
-Wilson's file reader lol
+Wilson's Config Reader
+Built for www.wilsonmcda.de
+Author: Wilson McDade / wilsonmcdade@github
 """
 
 def reader(filename):
