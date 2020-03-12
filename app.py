@@ -3,10 +3,18 @@ from reader import reader
 from logger import logger
 from datetime import datetime
 import os, sys
+import random
 
 app = Flask(__name__)
 count = 0
 posts = reader('posts.txt')
+
+error_text = [
+    "Need help finding yourself?",
+    "I hope this wasn't my fault. If it was, please let me know!",
+    "Oof that sucks",
+    "404s suck, don't they"
+    ]
 
 @app.route('/')
 @app.route('/index')
@@ -31,6 +39,12 @@ def resume():
     global count
     count = logger('resume', request.environ['REMOTE_ADDR'], file, count)
     return redirect('/static/assets/resume.pdf')
+
+@app.errorhandler(404)
+def error_404(e):
+    global count
+    count = logger('404', request.environ['REMOTE_ADDR'], file, count)
+    return render_template('404.html', error_message=error_text[random.randint(0,len(error_text)-1)])
 
 if __name__ == "__main__":
     now = datetime.now()

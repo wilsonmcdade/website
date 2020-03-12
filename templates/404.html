@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Modified by Wilson McDade
+-->
+<html>
+	<head>
+		<title>404 | Wilson McDade</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" /></noscript>
+		<link rel="icon" type="image/png" href="{{ url_for('static',filename='assets/images/favicon.png') }}">
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">Wilson McDade</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/">Home</a></li>
+								<li><a href="projects">Projects</a></li>
+								<li><a href="resume">Resume</a></li>
+								<li><hr/></li>
+								<li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
+								<li><a href="https://www.linkedin.com/in/wilson-mcdade-790399142">LinkedIn</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="banner">
+						<header>
+							<div class="inner">
+								<h2>Error 404: Looks like you're lost.</h2>
+                <h3>{{ error_message }}</h3>
+							</div>
+						</header>
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Feel free to email me! I am currently looking for a Spring 2021 Computer Science Co-op.</p>
+							<div class="row gtr-uniform">
+								<div class="col-2">
+								</div>
+								<div class="col-3">
+									<span class="image fit">
+									<a href="resume"><img src="{{ url_for('static',filename='assets/images/resume_thumb.png')}}"></a>
+								</span>
+								</div>
+								<div class="col-1">
+								</div>
+								<ul class="contact col-4">
+									<li class="icon solid fa-home">
+										Wilson McDade<br />
+										5000 Nathaniel Rochester Hall<br />
+										Rochester, NY 14623
+									</li>
+									<li class="icon solid fa-envelope"><a href="mailto:me@wmcda.de">me@wmcda.de</a></li>
+                  <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/wilson-mcdade-790399142">linkedin.com/in/wilson-mcdade-790399142</a></li>
+									<li class="icon brands fa-instagram"><a href="https://www.instagram.com/wilsonmcdade">instagram.com/wilsonmcdade</a></li>
+								</ul>
+							</div>
+							<ul class="copyright">
+								<li>&copy; Wilson McDade. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
