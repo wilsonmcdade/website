@@ -10,7 +10,7 @@
 		<title>Projects | Wilson McDade</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
 		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" /></noscript>
 		<link rel="icon" type="image/png" href="{{ url_for('static',filename='assets/images/favicon.png') }}">
 	</head>
@@ -35,7 +35,7 @@
 								<li><a href="/">Home</a></li>
 								<li><a href="projects">Projects</a></li>
 								<li><a href="resume">Resume</a></li>
-								<li><hr/></li>
+								<li>------</li>
 								<li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
 								<li><a href="https://www.linkedin.com/in/wilson-mcdade-790399142">LinkedIn</a></li>
 							</ul>
