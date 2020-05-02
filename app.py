@@ -9,9 +9,15 @@ app = Flask(__name__)
 count = 0
 posts = reader('posts.txt')
 
+coop = {
+    'term' : 'Spring 2021',
+    'type' : 'Computer Science'
+}
+
 error_text = [
     "Need help finding yourself?",
     "I hope this wasn't my fault. If it was, please let me know!",
+    "I hope this wasn't my fault (´･_･`)",
     "Oof that sucks",
     "404s suck, don't they"
     ]
@@ -22,7 +28,7 @@ error_text = [
 def index():
     global count
     count = logger('index', request.environ['REMOTE_ADDR'], file, count)
-    return render_template('index.html', posts=posts)
+    return render_template('index.html', posts=posts, coop = coop)
 
 @app.route('/projects.html')
 @app.route('/projects')
@@ -31,7 +37,7 @@ def index():
 def projects():
     global count
     count = logger('projects', request.environ['REMOTE_ADDR'], file, count)
-    return render_template('projects.html', posts=posts)
+    return render_template('projects.html', posts=posts, coop = coop)
 
 @app.route('/resume.html')
 @app.route('/resume')
@@ -42,16 +48,16 @@ def resume():
 
 @app.route('/portfolio.html')
 @app.route('/portfolio')
-def resume():
+def portfolio():
     global count
     count = logger('portfolio', request.environ['REMOTE_ADDR'], file, count)
-    return render_template('portfolio.html')
+    return render_template('portfolio.html', coop = coop)
 
 @app.errorhandler(404)
 def error_404(e):
     global count
     count = logger('404', request.environ['REMOTE_ADDR'], file, count)
-    return render_template('404.html', error_message=error_text[random.randint(0,len(error_text)-1)])
+    return render_template('404.html', error_message=error_text[random.randint(0,len(error_text)-1)], coop = coop)
 
 if __name__ == "__main__":
     now = datetime.now()
@@ -65,4 +71,4 @@ if __name__ == "__main__":
     with open(filename, "a+") as file:
         file.write("Log begin \n")
         file.write(str(current_date)+" - "+str(current_time)+"\n")
-        app.run("0.0.0.0",port="8080")
+        app.run(ip="0.0.0.0",port="8080")
