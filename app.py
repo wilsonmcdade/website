@@ -46,6 +46,13 @@ def resume():
     count = logger('resume', request.environ['REMOTE_ADDR'], file, count)
     return redirect('/static/assets/resume.pdf')
 
+@app.route('/store.html')
+@app.route('/store')
+def store():
+    global count
+    count = logger('store', request.environ['REMOTE_ADDR'],file,count)
+    return redirect('https://www.ArtPal.com/wilsonmcdade?r=169782')
+
 @app.route('/portfolio.html')
 @app.route('/portfolio')
 def portfolio():
