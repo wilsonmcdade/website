@@ -40,6 +40,13 @@ def resume():
     count = logger('resume', request.environ['REMOTE_ADDR'], file, count)
     return redirect('/static/assets/resume.pdf')
 
+@app.route('/portfolio.html')
+@app.route('/portfolio')
+def resume():
+    global count
+    count = logger('portfolio', request.environ['REMOTE_ADDR'], file, count)
+    return render_template('portfolio.html')
+
 @app.errorhandler(404)
 def error_404(e):
     global count
