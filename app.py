@@ -71,4 +71,4 @@ if __name__ == "__main__":
     with open(filename, "a+") as file:
         file.write("Log begin \n")
         file.write(str(current_date)+" - "+str(current_time)+"\n")
-        app.run(ip="0.0.0.0",port="8080")
+        app.run("0.0.0.0",port="8080")
