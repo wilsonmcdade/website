@@ -22,18 +22,24 @@ error_text = [
     "404s suck, don't they"
     ]
 
+footer = {
+    'insta' : 'instagram.com/wilsonmcdade',
+    'linkedin' : 'linkedin.com/in/wilsonmcdade',
+    'email' : 'me@wmcda.de'
+    }
+
 @app.route('/')
 @app.route('/index')
 @app.route('/index.html')
 def index():
-    return render_template('index.html', posts=posts, coop = coop)
+    return render_template('index.html', posts=posts, coop = coop, footer=footer)
 
 @app.route('/projects.html')
 @app.route('/projects')
 @app.route('/rtlsdr')
 @app.route('/gokart')
 def projects():
-    return render_template('projects.html', posts=posts, coop = coop)
+    return render_template('projects.html', posts=posts, coop = coop,footer=footer)
 
 @app.route('/resume.html')
 @app.route('/resume')
@@ -43,11 +49,11 @@ def resume():
 @app.route('/portfolio.html')
 @app.route('/portfolio')
 def portfolio():
-    return render_template('portfolio.html', coop = coop)
+    return render_template('portfolio.html', coop = coop, footer=footer)
 
 @app.errorhandler(404)
 def error_404(e):
-    return render_template('404.html', error_message=error_text[random.randint(0,len(error_text)-1)], coop = coop)
+    return render_template('404.html', error_message=error_text[random.randint(0,len(error_text)-1)], coop = coop, footer=footer)
 
 if __name__ == "__main__":
     if os.path.exists("logs/") == False:
