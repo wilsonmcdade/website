@@ -1,5 +1,6 @@
 %P
 %u gokart
+%g https://www.github.com/wilsonmcdade/gokart
 %T Building a homemade Go-Kart using a salvaged treadmill motor and an arduino
 %b With an arduino, I was able to control the salvaged linear actuator, motor, and motor controller of a broken treadmill. With this set up, I attempted to create a working go-kart.
 %s motor.jpg

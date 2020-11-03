@@ -66,7 +66,10 @@
 								{% for post in posts %}
 								<section class="wrapper {{ loop.cycle('style1','style2','style3','style4') }} {{ loop.cycle('alt','') }}" id="{{ post.url }}">
 									<div class="inner">
-										<h2 class="major">{{ post.title }}</h2>
+										<h2 {% if not post.github %} class="major" {% endif %}>{{ post.title }}</h2>
+										{% if post.github %}
+										<h3 class="major"><a href={{ post.github }}>{{ post.github }}</a></h3>
+										{% endif %}
 											{% if post.text %}
 											{% for para in post.text %}
 											{% if loop.index == 1 %}

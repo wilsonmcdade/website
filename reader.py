@@ -25,10 +25,12 @@ def parser(lines,file,posts):
     title = str
     blurb = str
     picsrc = str
+    github = None
     text = []
 
     post = {
         'url' : url,
+        'github' : github,
         'title' : title,
         'blurb' : blurb,
         'picsrc' : picsrc,
@@ -50,6 +52,7 @@ def parser(lines,file,posts):
             "%b":"blurb",
             "%s":"picsrc",
             "%c":"code",
+            "%g":"github",
             "%t":None,
             "%P":None
             }
