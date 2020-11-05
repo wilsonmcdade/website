@@ -28,14 +28,7 @@ footer = {
     'email' : 'me@wmcda.de'
     }
 
-tracker = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-B8H3YC8FGK\"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B8H3YC8FGK');
-</script>"
+tracker = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-B8H3YC8FGK\"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-B8H3YC8FGK');</script>"
 
 @app.route('/')
 @app.route('/index')
