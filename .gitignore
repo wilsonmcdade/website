@@ -3,4 +3,5 @@ venv/
 /dev-app.py
 __pycache__/
 logs/*
+.idea/
 /templates/assets/
