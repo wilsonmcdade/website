@@ -7,17 +7,17 @@ This is a Flask website built to run in an OKD container. It's a heavily modifie
 
 1. Clone the repo
 2. Create a virtual environment with
-'''
+~~~
 python3 -m venv venv
-'''
+~~~
 3. Launch the virtual environment 
-'''
+~~~
 source venv/bin/activate
-'''
+~~~
 4. Install required files with
-'''
+~~~
 pip install -r requirements.txt
-'''
+~~~
 5. Run app.py
 
 ### Included Files
