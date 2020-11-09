@@ -1,34 +1,44 @@
-# website
-My personal website - wilsonmcdade.com or wilsonmcda.de
+# Personal Website
+Accessible at [wmcda.de](wmcda.de)
 
-This is a flask website built using jinja2 templating with a modified HTML5Up template.
+This is a Flask website built to run in an OKD container. It's a heavily modified HTML5Up template with blog functionality.
 
-website.py - deals with routing and templating. calls reader() from reader.py
+### Local Development
 
-reader.py - deals with interpreting a post file and returning the posts for the website. reader() interprets the beginning of a post file, calls parser() to do the rest of the work.
+1. Clone the repo
+2. Create a virtual environment with
+'''
+python3 -m venv venv
+'''
+3. Launch the virtual environment 
+'''
+source venv/bin/activate
+'''
+4. Install required files with
+'''
+pip install -r requirements.txt
+'''
+5. Run app.py
 
-logger.py - contains logger(), a function called when a route is called that logs the time, route, ip address, and a count of page hits
+### Included Files
+**app.py** :: Handles routing and initiates the app. The important global variables also live here
 
-posts.txt - post file. Contains a list of posts for the website. 
+**reader.py** :: Parses the posts document and turns it into a 'post' JSON object to be inserted into the template
 
-# Post template
+**posts.txt** :: File containing the posts for the website. There are some built-in tags that are explained below
 
-%P
+### Post Templating
 
-%u url or id
+**%P** :: Denotes a new post
 
-%T title of post
+**%u** :: URL of post
 
-%b blurb
+**%T** :: Title of post
 
-%s mainpicture.jpg
+**%b** :: Blurb to be seen on the website index
 
-%t First paragraph of text
+**%s** :: Main picture to be shown on the website index
 
-%t Second paragraph of text
+**%t** :: Paragraph block
 
-%c First block of code
-
-%t Third paragraph of text
-
-You can have as many %t's as you would like. 
+**%c** :: Code block
