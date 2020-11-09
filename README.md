@@ -1,5 +1,5 @@
 # Personal Website
-Accessible at [https://wmcda.de](wmcda.de)
+Accessible at [wmcda.de](https://wmcda.de)
 
 This is a Flask website built to run in an OKD container. It's a heavily modified HTML5Up template with blog functionality.
 
