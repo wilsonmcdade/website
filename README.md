@@ -1,5 +1,4 @@
 # Personal Website
-[![Build Status](https://travis-ci.org/wilsonmcdade/website.svg?branch=master)](https://travis-ci.org/wilsonmcdade/website)
 
 Accessible at [wmcda.de](https://wmcda.de)
 
