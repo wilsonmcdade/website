@@ -10,7 +10,7 @@ count = 0
 posts = reader('posts.txt')
 
 coop = {
-    'term' : 'Spring 2021',
+    'term' : 'Summer 2021',
     'type' : 'Computer Science'
 }
 
