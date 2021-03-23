@@ -36,12 +36,13 @@ tracker = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-B8H
 def index():
     return render_template('index.html', posts=posts, coop = coop, footer=footer, tracker=tracker)
 
-@app.route('/projects.html')
+@app.route('/blog')
 @app.route('/projects')
+@app.route('/drinkr')
 @app.route('/rtlsdr')
 @app.route('/gokart')
 def projects():
-    return render_template('projects.html', posts=posts, coop = coop,footer=footer,tracker=tracker)
+    return render_template('blog.html', posts=posts, coop = coop,footer=footer,tracker=tracker)
 
 @app.route('/resume.html')
 @app.route('/resume')
