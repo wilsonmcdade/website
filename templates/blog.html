@@ -6,132 +6,109 @@
 	Modified by Wilson McDade
 -->
 <html>
-
-<head>
-    <title>Portfolio | Wilson McDade</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
-    <noscript>
-        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" />
-    </noscript>
-    <link rel="icon" type="image/png" href="{{ url_for('static',filename='assets/images/favicon.png') }}">
+	<head>
+		<title>Projects | Wilson McDade</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" /></noscript>
+		<link rel="icon" type="image/png" href="{{ url_for('static',filename='assets/images/favicon.png') }}">
 
 		<!-- Metadata for unfurls -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.wmcda.de/portfolio" />
-		<meta property="og:title" content="Portfolio | Wilson McDade" />
-		<meta property="og:description" content="Film photography by Wilson McDade." />
+		<meta property="og:url" content="https://www.wmcda.de/projects" />
+		<meta property="og:title" content="Blog | Wilson McDade" />
+		<meta property="og:description" content="I'm Wilson McDade, a second year computer science major at the Rochester Institute of Technology. I am currently seeking a Spring 2021 Co-op or Internship." />
 		<meta property="og:image" content="https://www.wmcda.de/static/assets/images/wilson.jpg" />
-</head>
+	</head>
+	<body class="is-preload">
 
-<body class="is-preload">
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-    <!-- Page Wrapper -->
-    <div id="page-wrapper">
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">Wilson McDade</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
 
-        <!-- Header -->
-        <header id="header">
-            <h1><a href="/">Wilson McDade</a></h1>
-            <nav>
-                <a href="#menu">Menu</a>
-            </nav>
-        </header>
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/">Home</a></li>
+								<li><a href="blog">Personal Blog</a></li>
+								<li><a href="resume">Resume</a></li>
+								<li><a href="portfolio">Photography</a></li>
+								<li><hr/></li>
+								<li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
+								<li><a target="_blank" href="https://www.linkedin.com/in/wilsonmcdade">LinkedIn</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
 
-        <!-- Menu -->
-        <nav id="menu">
-            <div class="inner">
-                <h2>Menu</h2>
-                <ul class="links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="resume">Resume</a></li>
-                    <li><a href="portfolio">Photography</a></li>
-                    <li>
-                        <hr/>
-                    </li>
-                    <li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
-                    <li><a href="https://www.linkedin.com/in/wilsonmcdade">LinkedIn</a></li>
-                </ul>
-                <a href="#" class="close">Close</a>
-            </div>
-        </nav>
+				<!-- Wrapper -->
+					<section id="banner">
+						<header>
+							<div class="inner">
+								<h2>Personal Blog</h2>
 
-        <!-- Wrapper -->
-        <section id="wrapper">
-            <section id="banner">
-                <header>
-                    <div class="inner">
-                        <h2>Photography Portfolio</h2>
-                        <p>I specialize in landscape and nature photography. Prints are available at <a href="/store">my store</a>.</p>
-                    </div>
-                </header>
-            </section>
+								<ul class="alt">
+									{% for post in posts %}
+									<li><a href="#{{ post.url }}"> {{ post.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</header>
+					</section>
 
-            <!-- Content -->
-            <div id="wrapper">
-                <section class="wrapper">
-                    <div class="inner">
-                        <section>
-                            <div class="box alt">
-                                <div class="row gtr-uniform">
-                                    <div class="col-12">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/leaves.png') }}" alt="" /></span>
-                                        <h3>"Leaves with Fish", taken in Japan. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
+						<!-- Content -->
+						<section id="wrapper">
 
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/pond.png') }}" alt="" /></span>
-                                        <h3>"Adirondack Pond", taken in Brandreth Park, New York. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/path.png') }}" alt="" /></span>
-                                        <h3>"Pathway", taken in the Arashiyama Bamboo Forest, Kyoto, Japan. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/tree.png') }}" alt="" /></span>
-                                        <h3>"Tree During Winter Time", taken on the RIT campus, Rochester New York. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/flowers.png') }}" alt="" /></span>
-                                        <h3>"White Roses in Tokyo", taken in the Shinjuku Gyoen National Garden, Tokyo, Japan. Camera: Nimslo 3D</h3>
-                                    </div>
-                                    <div class="col-12">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/courtyard.png') }}" alt="" /></span>
-                                        <h3>"Japanese Courtyard", taken in Kyoto, Japan. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/river.png') }}" alt="" /></span>
-                                        <h3>"River", taken in the Arashiyama Bamboo Forest, Kyoto, Japan. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="image fit"><img src="{{ url_for('static',filename='assets/images/walkway.png') }}" alt="" /></span>
-                                        <h3>"Walkway", taken in the Arashiyama Bamboo Forest, Kyoto, Japan. Camera: Canon Rebel 2000. Lens: Canon EF 28-80mm f/3.5-5.6</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </section>
-            </div>
-        </section>
+								{% if posts %}
+								{% for post in posts %}
+								<section class="wrapper {{ loop.cycle('style1','style2','style3','style4') }} {{ loop.cycle('alt','') }}" id="{{ post.url }}">
+									<div class="inner">
+										<h2 {% if not post.github %} class="major" {% endif %}>{{ post.title }}</h2>
+										{% if post.github %}
+										<h3 class="major"><a href={{ post.github }}>{{ post.github }}</a></h3>
+										{% endif %}
+											{% if post.text %}
+											{% for para in post.text %}
+											{% if loop.index == 1 %}
+											<p><span class="image right"><img src="{{ url_for('static',filename='assets/images/')}}{{ post.picsrc }}"></span> {{ para|safe }}</p>
+											{% else %}
+											<p>{{ para|safe }}</p>
+											{% endif %}
+											{% endfor %}
+											{% endif %}
+									</div>
+								</section>
+								{% endfor %}
+								{% endif %}
 
-        <!-- Footer -->
-        <section id="footer">
-            <div class="inner">
-                <h2 class="major">Get in touch</h2>
-                <p>Feel free to email me! I am currently looking for a {{ coop.term }} {{ coop.type }} co-op.</p>
-                <div class="row gtr-uniform">
-                    <div class="col-2">
-                    </div>
-                    <div class="col-3">
-                        <span class="image fit">
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Feel free to email me! I am currently looking for a {{ coop.term }} {{ coop.type }} co-op.</p>
+							<div class="row gtr-uniform">
+								<div class="col-2">
+								</div>
+								<div class="col-3">
+									<span class="image fit">
 									<a href="resume"><img src="{{ url_for('static',filename='assets/images/resume_thumb.png')}}"></a>
 								</span>
-                    </div>
-                    <div class="col-1">
-                    </div>
-                                                                                <ul class="contact col-4">
+								</div>
+								<div class="col-1">
+								</div>
+								                                                                <ul class="contact col-4">
                                                                         <li class="icon solid fa-home">
                                                                                 Wilson McDade<br />
                                                                                 5000 Nathaniel Rochester Hall<br />
@@ -142,24 +119,22 @@
                   <li class="icon brands fa-instagram"><a href="https://www.{{ footer.insta }}">{{ footer.insta }}</a></li>
                                                                 </ul>
 
-		</div>
-                <ul class="copyright">
-                    <li>&copy; Wilson McDade. All rights reserved.</li>
-                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                </ul>
-            </div>
-        </section>
+							</div>
+							<ul class="copyright">
+								<li>&copy; Wilson McDade. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
 
-    </div>
+			</div>
 
-    <!-- Scripts -->
-    {{ tracker|safe }}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
-    <script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+		<!-- Scripts -->
+			{{ tracker|safe }}
+			<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+			<script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
 
-</body>
-
+	</body>
 </html>
