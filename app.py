@@ -28,7 +28,16 @@ footer = {
     'email' : 'me@wmcda.de'
     }
 
-tracker = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-B8H3YC8FGK\"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-B8H3YC8FGK');</script>"
+tracker = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-B8\
+H3YC8FGK\"></script><script>window.dataLayer = window.dataLayer || [];function \
+gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-B8H3\
+YC8FGK');</script>"
+
+@app.route('/projects/<name>')
+def post(name):
+    for post in posts:
+        if post['url'] == name:
+            return render_template('post.html',blogpost = post,posts=posts, coop=coop, footer=footer,tracker=tracker)
 
 @app.route('/')
 @app.route('/index')
@@ -61,7 +70,7 @@ def error_404(e):
 if __name__ == "__main__":
     if os.path.exists("logs/") == False:
         os.mkdir("logs/")
-    logging.basicConfig(filename='logs/app.log', filemode='w',format='%(asctime)s :: %(levelname)s :: %(message)s')
+    logging.basicConfig(filename='logs/app.log', filemode='a',format='%(asctime)s :: %(levelname)s :: %(message)s')
     logging.info('Begin logging')
     
     app.run("0.0.0.0",port="8080")

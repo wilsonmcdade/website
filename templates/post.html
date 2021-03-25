@@ -7,7 +7,7 @@
 -->
 <html>
 	<head>
-		<title>Wilson McDade</title>
+		<title>{{ blogpost.title }} | Wilson McDade</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
@@ -16,8 +16,8 @@
 
 		<!-- Metadata for unfurls -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.wmcda.de/" />
-		<meta property="og:title" content="Wilson McDade" />
+		<meta property="og:url" content="https://www.wmcda.de/projects" />
+		<meta property="og:title" content="{{ blogpost.title }} | Wilson McDade" />
 		<meta property="og:description" content="I'm Wilson McDade, a second year computer science major at the Rochester Institute of Technology. I am currently seeking a Spring 2021 Co-op or Internship." />
 		<meta property="og:image" content="https://www.wmcda.de/static/assets/images/wilson.jpg" />
 	</head>
@@ -40,59 +40,70 @@
 							<h2>Menu</h2>
 							<ul class="links">
 								<li><a href="/">Home</a></li>
-								<li><a href="blog">Blog</a></li>
+								<li><a href="blog">Personal Blog</a></li>
 								<li><a href="resume">Resume</a></li>
 								<li><a href="portfolio">Photography</a></li>
 								<li><hr/></li>
 								<li><a target="_blank" href="https://www.github.com/wilsonmcdade">Github</a></li>
-								<li><a href="https://www.linkedin.com/in/wilsonmcdade">LinkedIn</a></li>
+								<li><a target="_blank" href="https://www.linkedin.com/in/wilsonmcdade">LinkedIn</a></li>
 							</ul>
 							<a href="#" class="close">Close</a>
 						</div>
 					</nav>
 
 				<!-- Wrapper -->
-					<section id="wrapper">
-						<section id="banner">
-							<header>
-								<div class="inner">
-									<h2>Wilson McDade</h2>
-									<p>Computer Science Bachelors student at the Rochester Institute of Technology</p>
-								</div>
-							</header>
-						</section>
+					<section id="banner">
+						<header>
+							<div class="inner">
+								<h2>{{ blogpost.title }}</h2>
+
+								<ul class="alt">
+									<li>{{ blogpost.blurb }}</li>
+								</ul>
+							</div>
+						</header>
+					</section>
 
 						<!-- Content -->
-							<div id="wrapper">
-								<section class="wrapper style1">
-								<div class="inner">
-									<h2>Who am I?</h2>
-									<p><span class="image right"><img src="{{ url_for('static',filename='assets/images/wilson.jpg') }}" style="border-radius:50%" alt="" /></span>I'm Wilson McDade, a second year computer science major at the Rochester Institute of Technology. I am currently seeking a {{ coop.term }} Co-op or Internship.</p>
-									<p>I have always been fascinated by computer hardware. This is why I am also pursuing a computer engineering minor. Most of my projects are computer engineering or electrical engineering related. I have built antennas to work with a $25 dollar software defined radio and I have driven a motor and motor controller salvaged from a broken treadmill. I hope to continue projects like this and do a write-up as a resource to others. Below are write-ups of my past projects including my thoughts and recommendations.</p>
-									<p><a href="resume">Linked is my resume</a></p>
-								</div>
-							</section>
-							<section class="wrapper alt style3">
-								<div class="inner">
+						<section id="wrapper">
 
-									<h2 class="major">Personal Blog</h2>
-									<section class="features">
+								<section class="wrapper style2 alt" id="{{ blogpost.url }}">
+									<div class="inner">
+										{% if blogpost.github %}
+										<h3><a href={{ blogpost.github }}>{{ blogpost.github }}</a></h3>
+										{% endif %}
+										{% if blogpost.text %}
+										{% for para in blogpost.text %}
+										{% if loop.index == 1 %}
+										<p><span class="image right"><img src="{{ url_for('static',filename='assets/images/')}}{{ blogpost.picsrc }}"></span> {{ para|safe }}</p>
+										{% else %}
+										<p>{{ para|safe }}</p>
+										{% endif %}
+										{% endfor %}
+										{% endif %}
+									</div>
+								</section>
 
+								<section class="wrapper style3">
+									<div class="inner">
+	
+										<h2 class="major">Other Posts</h2>
+										<section class="features">
+	
 										{% for post in posts %}
 											<article>
-												<a href="projects/{{ post.url }}" class="image"><img src="{{ url_for('static',filename='assets/images/') }}{{ post.picsrc }}"/></a>
+												<a href="{{ post.url }}" class="image"><img src="{{ url_for('static',filename='assets/images/') }}{{ post.picsrc }}"/></a>
 												<h3 class="major">{{ post.title }}</h3>
 												<p>{{ post.blurb }}</p>
-												<a href="projects/{{ post.url }}" class="special">Learn More</a>
+												<a href="{{ post.url }}" class="special">Learn More</a>
 											</article>
 
 										{% endfor %}
+	
+										</section>
 
-									</section>
-
-								</div>
-							</section>
-							</div>
+									</div>
+								</section>
 
 					</section>
 
@@ -111,7 +122,7 @@
 								</div>
 								<div class="col-1">
 								</div>
-								<ul class="contact col-4">
+								                                                                <ul class="contact col-4">
                                                                         <li class="icon solid fa-home">
                                                                                 Wilson McDade<br />
                                                                                 5000 Nathaniel Rochester Hall<br />
@@ -119,7 +130,7 @@
                                                                         </li>
                                                                         <li class="icon solid fa-envelope"><a href="mailto:{{ footer.email }}">{{ footer.email }}</a></li>
                                                                         <li class="icon brands fa-linkedin"><a href="https://www.{{ footer.linkedin }}">{{ footer.linkedin }}</a></li>
-						                  <li class="icon brands fa-instagram"><a href="https://www.{{ footer.insta }}">{{ footer.insta }}</a></li>
+                  <li class="icon brands fa-instagram"><a href="https://www.{{ footer.insta }}">{{ footer.insta }}</a></li>
                                                                 </ul>
 
 							</div>
