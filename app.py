@@ -10,7 +10,7 @@ count = 0
 posts = reader('posts.txt')
 
 coop = {
-    'term' : 'Summer 2021',
+    'term' : 'Summer 2022',
     'type' : 'Computer Science'
 }
 
@@ -18,7 +18,7 @@ error_text = [
     "Need help finding yourself?",
     "I hope this wasn't my fault. If it was, please let me know!",
     "I hope this wasn't my fault (´･_･`)",
-    "Oof that sucks",
+    "Oof",
     "404s suck, don't they"
     ]
 
