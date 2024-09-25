@@ -10,9 +10,9 @@ count = 0
 posts = reader('posts.txt')
 
 coop = {
-    'term' : 'Summer 2024',
+    'term' : 'January 2025',
     'type' : 'Computer Science',
-    'year' : 'fifth'
+    'year' : 'senior'
 }
 
 error_text = [
